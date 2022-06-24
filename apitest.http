@@ -1,0 +1,53 @@
+@url=http://localhost:3030
+@token={{ login.response.body.pubtoken }}
+
+
+###
+POST {{url}}/events
+content-type: application/json
+
+{
+  "type":2, 
+  "title":"반차입니다",
+  "start":"2022-06-24",
+  "end":"2022-06-24"
+}
+
+###
+
+GET {{url}}/events
+
+###
+POST {{url}}/auth/login
+content-type: application/json
+
+{
+    "username":"이현정",
+    "password":1234
+
+}
+
+
+
+
+# # @name login
+# POST {{url}}/api/pub/login HTTP/1.1
+# content-type: application/json
+
+# {
+#   "account":"user02",
+#   "passwd":"1234"
+# }
+
+
+
+
+# ### info - pub
+# GET {{url}}/api/pub/u/info HTTP/1.1
+# content-type: application/json
+# Authorization: {{token}}
+
+# ### info - user
+# GET {{url}}/api/u/info HTTP/1.1
+# content-type: application/json
+# Authorization: {{token}}
